@@ -1,13 +1,14 @@
-import { UserButton } from '@clerk/nextjs';
-import { auth } from '@clerk/nextjs/server';
+import { getUserProjects } from '@/lib/actions/database';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { UserButton } from '@clerk/nextjs';
 
 export default async function DashboardPage() {
-    const { userId } = await auth();
+    const userProjects = await getUserProjects();
 
-    if (!userId) {
-        redirect('/sign-in');
+    // If user has projects, redirect to the first one
+    if (userProjects.length > 0) {
+        redirect(`/project/${userProjects[0].id}`);
     }
 
     return (
@@ -26,15 +27,22 @@ export default async function DashboardPage() {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    <Link
-                        href="/dashboard"
-                        className="group rounded-lg border-2 border-dashed border-zinc-800 p-8 text-center transition-colors hover:border-violet-600 hover:bg-zinc-900/50"
-                    >
-                        <div className="text-4xl mb-4">+</div>
-                        <div className="text-lg font-medium text-zinc-100 group-hover:text-violet-400">
-                            Create New Project
-                        </div>
-                    </Link>
+                    <form action={async () => {
+                        'use server';
+                        const { createProject } = await import('@/lib/actions/database');
+                        const project = await createProject('Untitled Project');
+                        redirect(`/project/${project.id}`);
+                    }}>
+                        <button
+                            type="submit"
+                            className="group w-full rounded-lg border-2 border-dashed border-zinc-800 p-8 text-center transition-colors hover:border-violet-600 hover:bg-zinc-900/50"
+                        >
+                            <div className="text-4xl mb-4">+</div>
+                            <div className="text-lg font-medium text-zinc-100 group-hover:text-violet-400">
+                                Create New Project
+                            </div>
+                        </button>
+                    </form>
                 </div>
             </main>
         </div>
