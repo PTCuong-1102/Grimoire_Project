@@ -162,3 +162,23 @@ export async function deleteNode(nodeId: number) {
 
     revalidatePath(`/project/${node.projectId}`);
 }
+
+export async function updateNodeAttributes(nodeId: number, attributes: any) {
+    const { userId } = await auth();
+    if (!userId) throw new Error('Unauthorized');
+
+    const node = await getNode(nodeId);
+    if (!node) throw new Error('Node not found');
+
+    const [updated] = await db
+        .update(nodes)
+        .set({
+            attributes,
+            updatedAt: new Date(),
+        })
+        .where(eq(nodes.id, nodeId))
+        .returning();
+
+    revalidatePath(`/project/${node.projectId}/${nodeId}`);
+    return updated;
+}

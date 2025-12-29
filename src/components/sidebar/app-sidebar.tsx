@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { FileText, User, MapPin, StickyNote, ChevronRight, Plus } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -87,12 +88,30 @@ export function AppSidebar({ projectId, nodes }: SidebarProps) {
                             <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
                                 {section.title}
                             </span>
-                            <button
-                                className="text-zinc-500 hover:text-zinc-300"
-                                title={`New ${section.type}`}
-                            >
-                                <Plus className="h-3 w-3" />
-                            </button>
+                            <form action={async () => {
+                                'use server';
+                                const { createNode } = await import('@/lib/actions/database');
+                                const titles = {
+                                    chapter: 'Untitled Chapter',
+                                    character: 'New Character',
+                                    location: 'New Location',
+                                    note: 'New Note',
+                                };
+                                const newNode = await createNode({
+                                    projectId,
+                                    type: section.type,
+                                    title: titles[section.type],
+                                });
+                                redirect(`/project/${projectId}/${newNode.id}`);
+                            }}>
+                                <button
+                                    type="submit"
+                                    className="text-zinc-500 hover:text-zinc-300"
+                                    title={`New ${section.type}`}
+                                >
+                                    <Plus className="h-3 w-3" />
+                                </button>
+                            </form>
                         </div>
                         <div className="space-y-1">
                             {section.nodes.length === 0 ? (
