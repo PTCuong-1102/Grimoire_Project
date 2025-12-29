@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Grimoire - Character Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e16360",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#201212",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for the panel to keep it clean */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #e5e7eb;
+            border-radius: 20px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#171212] dark:text-gray-100 font-display overflow-hidden h-screen w-screen selection:bg-primary/20 selection:text-primary">
+<!-- Main Layout Container (Simulating the Editor in Background) -->
+<div class="flex h-full w-full opacity-100 transition-opacity duration-300">
+<!-- Sidebar Mockup -->
+<div class="hidden md:flex w-64 flex-col border-r border-gray-200 dark:border-gray-800 bg-[#fbfbfb] dark:bg-[#1a1010] h-full p-4 gap-4">
+<div class="flex items-center gap-2 mb-4 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+<span class="font-bold text-sm tracking-wide uppercase">Grimoire</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2 p-2 rounded bg-white dark:bg-[#2a1d1d] shadow-sm text-sm font-medium">
+<span class="material-symbols-outlined text-[18px]">draft</span>
+<span>Drafts</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span>World Bible</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>Characters</span>
+</div>
+</div>
+</div>
+<!-- Editor Content Mockup -->
+<div class="flex-1 flex justify-center overflow-y-auto bg-background-light dark:bg-background-dark p-8 md:p-16">
+<div class="max-w-[720px] w-full space-y-6">
+<div class="text-sm text-gray-400 dark:text-gray-500 uppercase tracking-widest font-semibold mb-8">Chapter 4: The Iron Gate</div>
+<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">The Unexpected Guest</h1>
+<p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    The wind howled through the cracks of the stone walls, carrying the scent of rain and old iron. 
+                    <span class="relative inline-block group cursor-pointer border-b-2 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all rounded px-1 -mx-1 text-gray-900 dark:text-white font-medium">
+                        Elias Thorne
+                    </span> 
+                    stood by the window, his silhouette cut sharply against the gray light of the dawn. He hadn't slept in days. The weight of the 
+                    <span class="text-primary hover:underline cursor-pointer">Iron Citadel</span> pressed upon his mind like a physical burden.
+                </p>
+<p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    "You shouldn't be here," a voice whispered from the shadows.
+                </p>
+<p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    Elias didn't turn. He knew the voice. He knew the danger. But for the first time in ten years, he felt something other than regret. He felt a spark of the forbidden magic stirring in his veins.
+                </p>
+</div>
+</div>
+</div>
+<!-- Backdrop Overlay -->
+<div class="fixed inset-0 bg-background-dark/20 dark:bg-black/40 backdrop-blur-[2px] z-40 transition-opacity duration-300"></div>
+<!-- Slide-out Panel -->
+<div class="fixed top-0 right-0 h-full w-full md:w-[400px] lg:w-[35%] bg-white dark:bg-[#1a1010] z-50 shadow-2xl border-l border-gray-200 dark:border-gray-800 transform transition-transform duration-300 ease-in-out flex flex-col group/design-root">
+<!-- Toolbar / Header -->
+<div class="flex justify-between items-center px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white/50 dark:bg-[#1a1010]/50 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center gap-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
+<span class="material-symbols-outlined text-sm">id_card</span>
+                Character Card
+            </div>
+<button class="text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Profile Header -->
+<div class="px-6 pt-8 pb-4 flex flex-col items-center">
+<div class="relative group cursor-pointer">
+<div class="h-28 w-28 rounded-2xl bg-gray-200 dark:bg-gray-800 bg-cover bg-center shadow-md ring-4 ring-white dark:ring-[#2a1d1d]" data-alt="Portrait of a middle-aged man with a beard looking serious" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtzm4kfs17CEBfVa_-Cf_gRyEaa7wADImxAxsZNwDO1HaQJN0dtIjP4hUi4aZnAC6XSg6GkPcPtMEvP3glf-TT0FHhdujYNs4qwrCfXln28i-MTkf6zFBLHl80BdA1bgzcqMIYPfNdtHmI4Eg-fEQAbiD_B6iPdAlOtVk14ShBul3FnX0kI2KKFGITIaj8iBUdjgHVZJb1pUp11RxfrHKzhyHDBC3n6AORetH-3T35hBLqgmoo74BSl4ay0_ocwqxh8P4Ykk3Y5aX1');">
+</div>
+<div class="absolute bottom-0 right-0 bg-white dark:bg-[#2a1d1d] p-1.5 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
+<span class="material-symbols-outlined text-sm text-primary block">edit</span>
+</div>
+</div>
+<h2 class="mt-4 text-2xl font-bold text-[#171212] dark:text-white tracking-tight">Elias Thorne</h2>
+<div class="mt-2 flex items-center gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-200">
+                        Antagonist
+                    </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+                        Human
+                    </span>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="px-6 py-4">
+<div class="grid grid-cols-2 gap-px bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="bg-white dark:bg-[#221616] p-3 flex flex-col gap-1">
+<span class="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">Age</span>
+<span class="text-sm font-medium text-gray-900 dark:text-gray-100">42</span>
+</div>
+<div class="bg-white dark:bg-[#221616] p-3 flex flex-col gap-1">
+<span class="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">Home</span>
+<span class="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">The Iron Citadel</span>
+</div>
+<div class="bg-white dark:bg-[#221616] p-3 flex flex-col gap-1">
+<span class="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">Status</span>
+<span class="text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Alive
+                        </span>
+</div>
+<div class="bg-white dark:bg-[#221616] p-3 flex flex-col gap-1">
+<span class="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">Class</span>
+<span class="text-sm font-medium text-gray-900 dark:text-gray-100">Ex-Knight</span>
+</div>
+</div>
+</div>
+<!-- Bio Section -->
+<div class="px-6 py-2">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-gray-400 text-lg">history_edu</span>
+<h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">Biography</h3>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    A disgraced knight seeking redemption through forbidden magic. Elias was exiled ten years ago after the Fall of Oakhaven. He wanders the borderlands, carrying a cursed blade that whispers the secrets of those it has slain. Though framed as a villain by the High Council, his motives remain shrouded in ambiguity.
+                </p>
+</div>
+<!-- Divider -->
+<div class="h-px bg-gray-100 dark:bg-gray-800 mx-6 my-4"></div>
+<!-- Backlinks / Appearances -->
+<div class="px-6 pb-24">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-400 text-lg">link</span>
+<h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">Appearances</h3>
+</div>
+<span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-500 px-1.5 py-0.5 rounded">3</span>
+</div>
+<div class="flex flex-col gap-1">
+<!-- Link Item 1 -->
+<a class="group flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#221616] transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-800" href="#">
+<div class="flex items-center justify-center w-8 h-8 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">article</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary transition-colors">Chapter 1: The Arrival</span>
+<span class="text-[11px] text-gray-400">First mention, intro scene</span>
+</div>
+</a>
+<!-- Link Item 2 -->
+<a class="group flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#221616] transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-800" href="#">
+<div class="flex items-center justify-center w-8 h-8 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">article</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary transition-colors">Chapter 4: The Iron Gate</span>
+<span class="text-[11px] text-gray-400">Current Chapter</span>
+</div>
+</a>
+<!-- Link Item 3 -->
+<a class="group flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#221616] transition-colors border border-transparent hover:border-gray-100 dark:hover:border-gray-800" href="#">
+<div class="flex items-center justify-center w-8 h-8 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">movie</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary transition-colors">Flashback: The Exile</span>
+<span class="text-[11px] text-gray-400">World building note</span>
+</div>
+</a>
+</div>
+<!-- Add New Link Placeholder -->
+<button class="w-full mt-2 flex items-center gap-2 p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#221616] transition-all text-sm border border-dashed border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>Link to new scene</span>
+</button>
+</div>
+</div>
+<!-- Sticky Footer -->
+<div class="p-4 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-[#1a1010] mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white py-2.5 px-4 rounded-lg font-medium shadow-sm hover:shadow transition-all text-sm">
+<span class="material-symbols-outlined text-[18px]">open_in_full</span>
+                Edit Full Page
+            </button>
+</div>
+</div>
+</body></html>

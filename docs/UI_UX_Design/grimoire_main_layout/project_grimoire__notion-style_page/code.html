@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Grimoire</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e16360",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#201212",
+                        "text-main": "#37352f",
+                        "text-dark": "#ffffff",
+                        "muted-light": "#9b9a97",
+                        "muted-dark": "#9b9a97",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        'bubble': '0px 0px 0px 1px rgba(15, 15, 15, 0.05), 0px 3px 6px rgba(15, 15, 15, 0.1), 0px 9px 24px rgba(15, 15, 15, 0.2)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar to match minimalist theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d1d1d1;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #3a3a3a;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #4a4a4a;
+        }
+        
+        /* Simulating the caret color */
+        [contenteditable] {
+            caret-color: #e16360;
+        }
+        
+        /* Hide outline on focus for contenteditable */
+        [contenteditable]:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-background-dark text-text-main dark:text-gray-200 font-display min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 py-2 border-b border-transparent transition-colors hover:border-gray-200 dark:hover:border-white/10 h-12">
+<div class="flex items-center gap-2">
+<!-- Sidebar Toggle -->
+<button class="p-1 rounded hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-gray-400 transition-colors">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+<!-- Breadcrumbs -->
+<div class="flex items-center text-sm gap-1 ml-2 text-gray-600 dark:text-gray-300">
+<div class="flex items-center gap-1.5 opacity-80 hover:opacity-100 cursor-pointer p-1 rounded hover:bg-gray-100 dark:hover:bg-white/10">
+<span class="material-symbols-outlined text-[16px]">book_2</span>
+<span class="font-medium">Grimoire</span>
+</div>
+<span class="text-gray-400">/</span>
+<div class="flex items-center gap-1.5 opacity-100 cursor-pointer p-1 rounded hover:bg-gray-100 dark:hover:bg-white/10">
+<span class="font-medium truncate max-w-[150px]">The Sapphire Citadel</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs text-gray-400 dark:text-gray-500 hidden sm:block">Edited 2m ago</span>
+<div class="flex items-center -space-x-2">
+<div class="size-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center border-2 border-white dark:border-background-dark font-bold">JD</div>
+<div class="size-6 rounded-full bg-blue-500 text-white text-[10px] flex items-center justify-center border-2 border-white dark:border-background-dark font-bold">AL</div>
+</div>
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+<button class="bg-primary hover:bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded transition-colors shadow-sm">
+                Share
+            </button>
+</div>
+</header>
+<main class="flex-1 flex flex-col relative w-full">
+<!-- Hero Cover Section -->
+<div class="relative group w-full h-[30vh] min-h-[200px] bg-gray-100 dark:bg-gray-900 overflow-hidden">
+<div class="absolute inset-0 bg-black/5 dark:bg-black/20 group-hover:bg-black/20 transition-all duration-300 z-10"></div>
+<!-- Cover Image -->
+<div class="w-full h-full bg-cover bg-center animate-fade-in" data-alt="Mystical blue gradient landscape with ethereal fog and distant castle silhouette" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWU-N8JAVg4YDg9UZon7yIR9E5ac2fyGykyFQ9sf00GxR1h6CdUQNtwXbi3yIdzRfVT0ObZITKkmvs1Ks2qkVM1M9qO-0nHd3_KXelPJ8itaUzGIrr5rsAMTrRCzb_3OVuWQ7LzqPxqqUiy0gUCMigPzVk0m3jmx8urWT3p4BoXz-yRCh7NCEQ7wA8nto0fg56lhtAt1KuznPOWquJsIS597QRgWXibywOOX9uIu-5najZ89noLEO4aGxKdVawXc2lmqLCYjI9pAe5');">
+</div>
+<button class="absolute bottom-4 right-8 z-20 bg-white/90 dark:bg-black/80 hover:bg-white dark:hover:bg-black text-xs font-medium px-3 py-1.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 text-gray-700 dark:text-gray-300">
+                Change cover
+            </button>
+</div>
+<!-- Document Body -->
+<div class="flex-1 w-full max-w-[900px] mx-auto px-12 sm:px-24 pb-32 flex flex-col relative">
+<!-- Page Icon -->
+<div class="relative -mt-[42px] mb-2 z-20 group/icon w-fit">
+<div class="size-[84px] text-[78px] leading-none flex items-center justify-center hover:bg-gray-100 dark:hover:bg-white/10 rounded cursor-pointer transition-colors select-none">
+                    📖
+                </div>
+</div>
+<!-- Title -->
+<div class="group/title relative mb-6">
+<h1 class="text-4xl sm:text-[40px] font-bold text-gray-900 dark:text-white leading-tight tracking-tight placeholder:text-gray-300 dark:placeholder:text-gray-700 w-full resize-none bg-transparent outline-none break-words" contenteditable="true" spellcheck="false">The Sapphire Citadel</h1>
+</div>
+<!-- Properties Meta Block -->
+<div class="flex flex-col gap-1 mb-10 text-sm border-b border-gray-100 dark:border-white/5 pb-6">
+<!-- Property: Created By -->
+<div class="flex items-center h-8 group/prop">
+<div class="w-[140px] flex items-center gap-2 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-[16px] opacity-70">calendar_today</span>
+<span class="truncate">Created</span>
+</div>
+<div class="flex-1 text-gray-900 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/5 px-2 py-1 -ml-2 rounded cursor-pointer transition-colors">
+                        Oct 24, 2023 10:42 AM
+                    </div>
+</div>
+<!-- Property: Tags -->
+<div class="flex items-center min-h-8 group/prop">
+<div class="w-[140px] flex items-center gap-2 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-[16px] opacity-70">sell</span>
+<span class="truncate">Tags</span>
+</div>
+<div class="flex-1 flex flex-wrap gap-1.5 -ml-2 px-2 py-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-xs font-medium">
+                            Location
+                        </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs font-medium">
+                            Magic
+                        </span>
+<button class="opacity-0 group-hover/prop:opacity-100 transition-opacity text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-0.5">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- Property: Characters -->
+<div class="flex items-center min-h-8 group/prop">
+<div class="w-[140px] flex items-center gap-2 text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-[16px] opacity-70">group</span>
+<span class="truncate">Characters</span>
+</div>
+<div class="flex-1 flex flex-wrap gap-2 -ml-2 px-2 py-1">
+<div class="flex items-center gap-1 group/link cursor-pointer">
+<div class="size-4 rounded-full bg-cover bg-center" data-alt="Avatar of Arin" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeu63LzIaQXgVaa5-rn3dYuUGhJlY08rlUz2zKyipWZe7i-zqfJfT9NrNMadh2sj8kOUCthPwnXHRyDB-Ew4YqEvsb5sJVb0jMb7pBeS2lzuSMJAyhjqPb6zW4Lh3XNBr9hyFHJ7lGIQt9tK4PT75D6Cxozq3Z17herb17lKTHaR6l44biJ7p0kRrJw_gqc5lL3H1aVt9swgWMMBWoICLha6QcACrPHc6rReSvbXY8C9OTq5iB5OR3ojJyttCObeMoshzP2RqMC3ty');"></div>
+<span class="border-b border-gray-300 dark:border-gray-600 group-hover/link:border-primary dark:group-hover/link:border-primary transition-colors">Arin</span>
+</div>
+<span class="text-gray-300 dark:text-gray-700">,</span>
+<div class="flex items-center gap-1 group/link cursor-pointer">
+<div class="size-4 rounded-full bg-cover bg-center" data-alt="Avatar of Lyra" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYKrb_sJbN950qHisV9qWCuKKb77pQ_QZlN_k1g5OVvd9vzjbqddEC9uN9NpYGjpAsuVvvE5W_AZMubYDAEwOSQbRo1KT1v0GmCAuAuLWBFKapsRbyJp5kSs933s8bavxg7LwpMbVMg6GhoUnKjDr7AzyvCmw09iVKrrooGVpmp8ogumHsci6tVzOAFTt9zHmkiP7QvfA58gv3pgwZv3qVWtT06CX2rqstet4jZQI_Be9y6WX_t5_mXw8u3hk2Z4RIZWZk-o12N7i0');"></div>
+<span class="border-b border-gray-300 dark:border-gray-600 group-hover/link:border-primary dark:group-hover/link:border-primary transition-colors">Lyra</span>
+</div>
+</div>
+</div>
+<!-- Add Property Button -->
+<div class="flex items-center h-8 group/prop mt-1">
+<button class="flex items-center gap-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                        Add property
+                    </button>
+</div>
+</div>
+<!-- WYSIWYG Editor Area -->
+<div class="prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-primary relative group/editor">
+<!-- Formatting Bubble Menu (Simulated Selection State) -->
+<div class="absolute top-[85px] left-[140px] z-50 transform -translate-x-1/2 -translate-y-full pb-2 animate-in fade-in zoom-in duration-200">
+<div class="bg-white dark:bg-[#252525] rounded-lg shadow-bubble border border-gray-100 dark:border-white/10 flex items-center p-1 gap-0.5">
+<div class="flex items-center border-r border-gray-200 dark:border-white/10 pr-1 mr-1">
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-600 dark:text-gray-300">
+<span class="text-xs font-bold font-serif">T</span>
+<span class="material-symbols-outlined text-[14px] align-middle">arrow_drop_down</span>
+</button>
+</div>
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-primary font-bold"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-600 dark:text-gray-300 italic"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-600 dark:text-gray-300 underline"><span class="material-symbols-outlined text-[18px]">format_underlined</span></button>
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-600 dark:text-gray-300 line-through"><span class="material-symbols-outlined text-[18px]">strikethrough_s</span></button>
+<div class="w-px h-4 bg-gray-200 dark:bg-white/10 mx-1"></div>
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-600 dark:text-gray-300"><span class="material-symbols-outlined text-[18px]">link</span></button>
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-600 dark:text-gray-300"><span class="material-symbols-outlined text-[18px]">chat_bubble</span></button>
+<button class="p-1.5 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-600 dark:text-gray-300"><span class="material-symbols-outlined text-[18px]">more_horiz</span></button>
+</div>
+<!-- Triangle pointer -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-3 h-3 bg-white dark:bg-[#252525] rotate-45 border-b border-r border-gray-100 dark:border-white/10 shadow-[2px_2px_2px_rgba(0,0,0,0.05)]"></div>
+</div>
+<p class="mb-4">
+                    The Citadel stands high above the clouds, a beacon of ancient power. Its walls, constructed from pure <span class="bg-primary/20 text-primary dark:text-primary rounded-sm selection:bg-transparent">crystalline sapphire</span>, refract the sunlight into a thousand dancing rainbows that span the valley below.
+                </p>
+<p class="mb-4">
+                    Before the <a class="no-underline text-gray-900 dark:text-gray-100 border-b border-gray-300 hover:border-primary transition-colors" href="#">[[Great Fracture]]</a>, this was the seat of the High Council. Now, only the wind whispers through the hollow halls. <a class="no-underline text-gray-900 dark:text-gray-100 border-b border-gray-300 hover:border-primary transition-colors" href="#">[[Arin]]</a> believes that the core is still active, humming with a low frequency that only the magically attuned can hear.
+                </p>
+<div class="flex gap-4 p-4 my-6 bg-gray-50 dark:bg-white/5 rounded-lg border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary">format_quote</span>
+<p class="italic text-gray-600 dark:text-gray-300 m-0">"The stone remembers what the blood forgets." — Ancient inscription on the North Gate.</p>
+</div>
+<h2 class="text-2xl font-bold mt-8 mb-4 flex items-center gap-2 group/heading">
+                    The Inner Sanctum
+                    <span class="opacity-0 group-hover/heading:opacity-100 cursor-pointer text-gray-300 hover:text-gray-500 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">link</span>
+</span>
+</h2>
+<ul class="list-disc pl-5 space-y-2 mb-6 marker:text-gray-400">
+<li>Three locked doors guard the entrance.</li>
+<li>The air is noticeably colder, condensing breath into mist.</li>
+<li>Shadows seem to move independently of the light sources.</li>
+</ul>
+<!-- Slash Command Trigger -->
+<div class="relative flex items-center group/block">
+<!-- Block Drag Handle (Hover State) -->
+<div class="absolute -left-16 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-0 group-hover/block:opacity-100 transition-opacity pr-2">
+<button class="p-1 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-400">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<button class="p-1 hover:bg-gray-100 dark:hover:bg-white/10 rounded text-gray-400 cursor-grab">
+<span class="material-symbols-outlined text-[20px]">drag_indicator</span>
+</button>
+</div>
+<span class="text-primary font-bold mr-1">/</span>
+<span class="text-gray-400">Type for commands...</span>
+<!-- Slash Menu Dropdown -->
+<div class="absolute top-8 left-0 z-50 w-72 bg-white dark:bg-[#252525] rounded-lg shadow-bubble border border-gray-100 dark:border-white/10 overflow-hidden py-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
+<div class="px-3 py-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Basic blocks</div>
+<button class="w-full text-left px-3 py-1.5 hover:bg-gray-100 dark:hover:bg-white/10 flex items-center gap-3 transition-colors bg-gray-100 dark:bg-white/5">
+<div class="size-10 rounded border border-gray-200 dark:border-white/10 bg-white dark:bg-black/20 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-gray-600 dark:text-gray-300">text_fields</span>
+</div>
+<div>
+<div class="text-sm font-medium text-gray-900 dark:text-gray-100">Text</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">Just start writing with plain text.</div>
+</div>
+</button>
+<button class="w-full text-left px-3 py-1.5 hover:bg-gray-100 dark:hover:bg-white/10 flex items-center gap-3 transition-colors">
+<div class="size-10 rounded border border-gray-200 dark:border-white/10 bg-white dark:bg-black/20 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-gray-600 dark:text-gray-300">check_box</span>
+</div>
+<div>
+<div class="text-sm font-medium text-gray-900 dark:text-gray-100">To-do list</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">Track tasks with a to-do list.</div>
+</div>
+</button>
+<button class="w-full text-left px-3 py-1.5 hover:bg-gray-100 dark:hover:bg-white/10 flex items-center gap-3 transition-colors">
+<div class="size-10 rounded border border-gray-200 dark:border-white/10 bg-white dark:bg-black/20 flex items-center justify-center shadow-sm">
+<span class="text-xl font-bold text-gray-600 dark:text-gray-300 font-serif">H1</span>
+</div>
+<div>
+<div class="text-sm font-medium text-gray-900 dark:text-gray-100">Heading 1</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">Big section heading.</div>
+</div>
+</button>
+<button class="w-full text-left px-3 py-1.5 hover:bg-gray-100 dark:hover:bg-white/10 flex items-center gap-3 transition-colors">
+<div class="size-10 rounded border border-gray-200 dark:border-white/10 bg-white dark:bg-black/20 flex items-center justify-center shadow-sm">
+<span class="text-lg font-bold text-gray-600 dark:text-gray-300 font-serif">H2</span>
+</div>
+<div>
+<div class="text-sm font-medium text-gray-900 dark:text-gray-100">Heading 2</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">Medium section heading.</div>
+</div>
+</button>
+</div>
+</div>
+<!-- Wiki Link Autocomplete (Simulated) -->
+<!-- Hidden by default, just showing layout possibility -->
+<div class="hidden absolute top-[500px] left-[200px] w-64 bg-white dark:bg-[#252525] rounded-lg shadow-bubble border border-gray-100 dark:border-white/10 overflow-hidden py-1 z-50">
+<div class="px-3 py-1.5 text-xs font-semibold text-gray-500">Link to page</div>
+<button class="w-full text-left px-3 py-1.5 hover:bg-gray-100 dark:hover:bg-white/10 flex items-center gap-2 transition-colors bg-primary/10">
+<span class="material-symbols-outlined text-[18px] text-gray-500">description</span>
+<span class="text-sm text-gray-900 dark:text-gray-100">The Sapphire Citadel</span>
+</button>
+<button class="w-full text-left px-3 py-1.5 hover:bg-gray-100 dark:hover:bg-white/10 flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-gray-500">description</span>
+<span class="text-sm text-gray-900 dark:text-gray-100">Map of Eldoria</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Help / Info Button Bottom Right -->
+<div class="fixed bottom-6 right-6 z-40">
+<button class="size-8 flex items-center justify-center rounded-full bg-white dark:bg-background-dark border border-gray-200 dark:border-white/10 shadow hover:bg-gray-50 dark:hover:bg-white/5 text-gray-400 transition-colors">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+</div>
+</body></html>

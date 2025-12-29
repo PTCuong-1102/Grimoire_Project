@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Grimoire - New Page</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e16360",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#201212",
+                        "stone-850": "#2a2525",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e5e5; 
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #333; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4d4d4; 
+        }
+        
+        .empty-state-trigger {
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+        .empty-state-trigger:hover {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+        
+        /* Simulating the caret color for the title */
+        .caret-primary {
+            caret-color: #e16360;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-stone-900 dark:text-stone-100 font-display overflow-hidden selection:bg-primary/20 selection:text-primary">
+<div class="flex h-screen w-full">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 flex flex-col justify-between bg-white dark:bg-[#1a0f0f] border-r border-stone-200 dark:border-stone-800 transition-colors duration-300">
+<div class="flex flex-col p-4 gap-6">
+<!-- App Header -->
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-md size-8 shadow-sm" data-alt="Abstract mystic gradient logo for Project Grimoire" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1MHXqOekHOe3bQhY2AzP14TYvTU4DG8r9l0xnDcXkl0ZlO9NZWYfutt7iLDmHGCgFSDygZf8Eg3r6gz4B8qmBGZsfd4zvxGWb_ULm1RizfYbcQ2AjgOfs7UCzqn53fKCNBUi6tVtol7MqXARxotehu0RPCCc-5yZziHxYeQZo5aLbn3JM3E3xZNk9fgq-8TY30o4VpKBjNAvIGaKYj38ZzXNGsABqDdrXB5uddB66VPF-9LujWlJzLmPkuGTe9bkMRtB6j98It1dp");'></div>
+<h1 class="text-stone-900 dark:text-white text-base font-semibold tracking-tight">Project Grimoire</h1>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1">
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors group">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">search</span>
+<span class="text-sm font-medium">Search</span>
+</button>
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors group">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">hub</span>
+<span class="text-sm font-medium">Graph View</span>
+</button>
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px] fill-1">description</span>
+<span class="text-sm">All Pages</span>
+</button>
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors group">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</button>
+</nav>
+<!-- Favorites / Recent -->
+<div class="flex flex-col gap-2 px-3 mt-4">
+<p class="text-xs font-semibold text-stone-400 dark:text-stone-500 uppercase tracking-wider">Favorites</p>
+<a class="flex items-center gap-2 text-stone-600 dark:text-stone-300 text-sm hover:text-primary py-1" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>The Glass Kingdom</span>
+</a>
+<a class="flex items-center gap-2 text-stone-600 dark:text-stone-300 text-sm hover:text-primary py-1" href="#">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>Character List</span>
+</a>
+</div>
+</div>
+<!-- User Profile / Bottom Actions -->
+<div class="p-4 border-t border-stone-200 dark:border-stone-800">
+<button class="flex items-center gap-3 w-full px-2 py-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+<div class="size-8 rounded-full bg-stone-200 dark:bg-stone-700 overflow-hidden">
+<img alt="User profile avatar showing a smiling woman" class="w-full h-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsKObXeK11ogoKiSv47xLnfdKsxj0iy9ev4bVPodgrNgb5KzXx1A3G_YkUTO5Kd4ivPZnjFxPB2l_IJnVDeA6bKxqpxeIj7vLbXTYTOWXW2AM6osejV6IGLiUkWOek2L0EQGL_Gsqc3qflK4PEuP8Glfu-hlR3uOAkHoL2z4y7kv2Dkns_le-8KJ_YuTFrm4VjO8zgtfXDVEfNyc-jXiy3CoF71tzGtbz_q-OycAte_R0D6gEZlBl3wCfCJMD5Z2Hxfm_c-ZgGC2OW"/>
+</div>
+<div class="flex flex-col items-start">
+<span class="text-sm font-medium text-stone-900 dark:text-white">Elara Vance</span>
+<span class="text-xs text-stone-500">Pro Plan</span>
+</div>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col relative overflow-hidden h-full">
+<!-- Top Utility Bar -->
+<header class="h-14 flex items-center justify-between px-6 py-2 shrink-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm">
+<a class="text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200 transition-colors" href="#">Grimoire</a>
+<span class="text-stone-300 dark:text-stone-600">/</span>
+<a class="text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200 transition-colors" href="#">Drafts</a>
+<span class="text-stone-300 dark:text-stone-600">/</span>
+<span class="text-stone-900 dark:text-white font-medium">New Page</span>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-stone-400 mr-2">Edited just now</span>
+<button class="text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white p-1.5 rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<button class="text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white p-1.5 rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">star</span>
+</button>
+<button class="text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white p-1.5 rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Page Canvas -->
+<div class="flex-1 overflow-y-auto w-full flex justify-center">
+<div class="w-full max-w-[850px] px-8 py-12 flex flex-col gap-2 pb-32">
+<!-- Meta Chips (Hidden by default or low opacity until hovered in real app, distinct here) -->
+<div class="flex flex-wrap gap-2 mb-6 group opacity-60 hover:opacity-100 transition-opacity duration-300">
+<button class="flex items-center gap-1.5 px-2 py-1 rounded text-stone-500 hover:bg-stone-200 dark:hover:bg-stone-800 dark:text-stone-400 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_reaction</span>
+<span class="text-sm font-medium">Add Icon</span>
+</button>
+<button class="flex items-center gap-1.5 px-2 py-1 rounded text-stone-500 hover:bg-stone-200 dark:hover:bg-stone-800 dark:text-stone-400 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+<span class="text-sm font-medium">Add Cover</span>
+</button>
+<button class="flex items-center gap-1.5 px-2 py-1 rounded text-stone-500 hover:bg-stone-200 dark:hover:bg-stone-800 dark:text-stone-400 transition-colors">
+<span class="material-symbols-outlined text-[18px]">local_offer</span>
+<span class="text-sm font-medium">Add Tags</span>
+</button>
+</div>
+<!-- Page Title -->
+<div class="mb-8">
+<input autofocus="" class="w-full bg-transparent border-none p-0 text-4xl font-bold text-stone-900 dark:text-stone-50 placeholder:text-stone-300 dark:placeholder:text-stone-700 focus:ring-0 caret-primary leading-tight" placeholder="Untitled Page" type="text"/>
+</div>
+<!-- Empty State Content -->
+<div class="flex flex-col gap-6 text-stone-500 dark:text-stone-400">
+<!-- Initial Prompt -->
+<div class="flex items-center gap-2 text-base">
+<span class="material-symbols-outlined text-stone-300 dark:text-stone-600">keyboard_return</span>
+<p>Press <kbd class="font-mono text-sm bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded border border-stone-200 dark:border-stone-700">Enter</kbd> to continue with an empty page</p>
+</div>
+<!-- Secondary Prompt -->
+<div class="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500">
+<p>Or pick a template to get started:</p>
+</div>
+<!-- Template Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+<!-- Template Item 1 -->
+<button class="group flex items-start gap-4 p-4 rounded-xl border border-stone-200 dark:border-stone-800 hover:border-primary/30 dark:hover:border-primary/30 hover:bg-white dark:hover:bg-[#251a1a] hover:shadow-sm transition-all duration-200 text-left">
+<div class="p-2 rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">person_book</span>
+</div>
+<div>
+<h3 class="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1 group-hover:text-primary transition-colors">Character Profile</h3>
+<p class="text-xs text-stone-500 dark:text-stone-500 leading-relaxed">Define personality, backstory, and arc.</p>
+</div>
+</button>
+<!-- Template Item 2 -->
+<button class="group flex items-start gap-4 p-4 rounded-xl border border-stone-200 dark:border-stone-800 hover:border-primary/30 dark:hover:border-primary/30 hover:bg-white dark:hover:bg-[#251a1a] hover:shadow-sm transition-all duration-200 text-left">
+<div class="p-2 rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">map</span>
+</div>
+<div>
+<h3 class="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1 group-hover:text-primary transition-colors">World Building</h3>
+<p class="text-xs text-stone-500 dark:text-stone-500 leading-relaxed">Geography, culture, and location lore.</p>
+</div>
+</button>
+<!-- Template Item 3 -->
+<button class="group flex items-start gap-4 p-4 rounded-xl border border-stone-200 dark:border-stone-800 hover:border-primary/30 dark:hover:border-primary/30 hover:bg-white dark:hover:bg-[#251a1a] hover:shadow-sm transition-all duration-200 text-left">
+<div class="p-2 rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">format_list_numbered</span>
+</div>
+<div>
+<h3 class="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1 group-hover:text-primary transition-colors">Chapter Outline</h3>
+<p class="text-xs text-stone-500 dark:text-stone-500 leading-relaxed">Structure your beats and key scenes.</p>
+</div>
+</button>
+<!-- Template Item 4 -->
+<button class="group flex items-start gap-4 p-4 rounded-xl border border-stone-200 dark:border-stone-800 hover:border-primary/30 dark:hover:border-primary/30 hover:bg-white dark:hover:bg-[#251a1a] hover:shadow-sm transition-all duration-200 text-left">
+<div class="p-2 rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1 group-hover:text-primary transition-colors">Idea Generator</h3>
+<p class="text-xs text-stone-500 dark:text-stone-500 leading-relaxed">Prompts to break writer's block.</p>
+</div>
+</button>
+</div>
+<!-- Divider / More options -->
+<div class="relative flex py-5 items-center">
+<div class="flex-grow border-t border-stone-200 dark:border-stone-800"></div>
+<span class="flex-shrink-0 mx-4 text-stone-300 dark:text-stone-600 text-xs uppercase tracking-widest font-medium">Or type <span class="bg-stone-100 dark:bg-stone-800 px-1 rounded text-stone-500 dark:text-stone-400 font-bold border border-stone-200 dark:border-stone-700">/</span> for commands</span>
+<div class="flex-grow border-t border-stone-200 dark:border-stone-800"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
